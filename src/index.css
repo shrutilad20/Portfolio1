@@ -1,0 +1,92 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 10% 3.9%;
+
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .stagger-1 { transition-delay: 0.1s; }
+  .stagger-2 { transition-delay: 0.2s; }
+  .stagger-3 { transition-delay: 0.3s; }
+  .stagger-4 { transition-delay: 0.4s; }
+  .stagger-5 { transition-delay: 0.5s; }
+  
+  .glass-panel {
+    @apply bg-white/80 backdrop-blur-lg border border-white/20 shadow-lg;
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .nav-link {
+    @apply relative text-foreground/80 hover:text-foreground transition-colors duration-200 after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-primary after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold tracking-tight mb-6;
+  }
+  
+  .project-card {
+    @apply overflow-hidden relative rounded-2xl transition-all duration-500 hover:shadow-xl;
+  }
+  
+  .project-card img {
+    @apply transition-all duration-700 hover:scale-105;
+  }
+}
